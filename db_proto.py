@@ -1,6 +1,6 @@
 import sqlite3
 
-con = sqlite3.connect('data.db')
+con = sqlite3.connect('data_ssim_diff.db')
 cur = con.cursor()
 cur.execute('''CREATE TABLE IF NOT EXISTS "Movies"
                     ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL ,
@@ -8,13 +8,14 @@ cur.execute('''CREATE TABLE IF NOT EXISTS "Movies"
                     "frame_timestamp" VARCHAR(100),
                     "frame_norm" INTEGER,
                     "frame_dif" INTEGER,
-                    "median" INTEGER);
+                    "median" INTEGER,
+                    "ssim_diff" INTEGER);
                     ''')
 
 def insert_into_db(mas):
-    query_str = '''INSERT INTO Movies(movie_name, frame_timestamp, frame_norm, frame_dif, median) VALUES'''
+    query_str = '''INSERT INTO Movies(movie_name, frame_timestamp, frame_norm, frame_dif, median, ssim_diff) VALUES'''
     for i in mas:
-        query_str +='''('{0}','{1}','{2}','{3}','{4}')'''.format(i[0], i[1], i[2], i[3], i[4])
+        query_str +=f'''('{i[0]}','{i[1]}','{i[2]}','{i[3]}','{i[4]}', '{i[5]}')'''
         query_str+=','
     query_str=query_str[:-1]
     query_str+=';'
