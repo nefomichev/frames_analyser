@@ -18,10 +18,13 @@ $ pip3 install cv2 numpy Image sqlite3
 # Clone this repository
 $ git clone https://github.com/analyzehim/frames_analyser/
 
-# Go into the repository
+# Go into the repository and create "data" folder
 $ cd frames_analyser
+$ mkdir data
+
+# Trasfer your movie into /data folder.
 
 
 # Run the app
-$ python3 main.py
+$ python3 main.py "MOVIE_NAME.mp4"
 ```
