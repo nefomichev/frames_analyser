@@ -1,9 +1,19 @@
 import time
+import sys
+import os
 from video_proto import norms_analysis, create_frames
 from db_proto import drop_data
 
 if __name__ == '__main__':
-    MOVIE_NAME = 'soprano_bad.mp4'
+    if len(sys.argv)<2:
+        print('INSERT MOVIE TITLE')
+        exit()
+
+    MOVIE_NAME = sys.argv[1]
+
+    if not os.path.isfile('data/%s' % MOVIE_NAME):
+        print('THERE IS NOT FILE data/%s exists' % MOVIE_NAME)
+        exit()
 
     timestamp = time.time()
     drop_data(MOVIE_NAME) # Entities should not be multiplied beyond necessity
