@@ -13,7 +13,7 @@ To clone and run this application, you'll need [Git](https://git-scm.com) and [p
 
 ```bash
 # Download dependencies
-$ pip install cv2 numpy Image sqlite3
+$ pip3 install cv2 numpy Image sqlite3
 
 # Clone this repository
 $ git clone https://github.com/analyzehim/frames_analyser/
@@ -23,5 +23,5 @@ $ cd frames_analyser
 
 
 # Run the app
-$ python main.py
+$ python3 main.py
 ```
